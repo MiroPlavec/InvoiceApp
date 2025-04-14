@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.cevalp.invoiceapp.controllers.InvoiceViewController"
+            stylesheets="@../styles/invoice-view.css">
+
+
+    <GridPane styleClass="gridPane-bordered" gridLinesVisible="false">
+        <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Vybrat dodavatela"/>
+
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Dodavatel"/>
+
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Firma:"/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" />
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="2" text="ICO: "/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="3" />
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="4" text="DIC: "/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" />
+
+        <Label GridPane.rowIndex="3" GridPane.columnIndex="0" text="Mesto: "/>
+        <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" />
+        <Label GridPane.rowIndex="3" GridPane.columnIndex="2" text="Ulica: "/>
+        <TextField GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+        <Label GridPane.rowIndex="3" GridPane.columnIndex="4" text="Cislo domu: "/>
+        <TextField GridPane.rowIndex="3" GridPane.columnIndex="5" />
+        <Label GridPane.rowIndex="3" GridPane.columnIndex="6" text="PSC: "/>
+        <TextField GridPane.rowIndex="3" GridPane.columnIndex="7" />
+    </GridPane>
+
+    
+    <GridPane>
+        <Button GridPane.rowIndex="4" GridPane.columnIndex="0" text="Vybrat prijimatela"/>
+
+        <Label GridPane.rowIndex="5" GridPane.columnIndex="0" text="Prijimatel"/>
+
+        <Label GridPane.rowIndex="6" GridPane.columnIndex="0" text="Firma:"/>
+        <TextField GridPane.rowIndex="6" GridPane.columnIndex="1" />
+        <Label GridPane.rowIndex="6" GridPane.columnIndex="2" text="ICO: "/>
+        <TextField GridPane.rowIndex="6" GridPane.columnIndex="3" />
+        <Label GridPane.rowIndex="6" GridPane.columnIndex="4" text="DIC: "/>
+        <TextField GridPane.rowIndex="6" GridPane.columnIndex="5" />
+
+        <Label GridPane.rowIndex="7" GridPane.columnIndex="0" text="Mesto: "/>
+        <TextField GridPane.rowIndex="7" GridPane.columnIndex="1" />
+        <Label GridPane.rowIndex="7" GridPane.columnIndex="2" text="Ulica: "/>
+        <TextField GridPane.rowIndex="7" GridPane.columnIndex="3"/>
+        <Label GridPane.rowIndex="7" GridPane.columnIndex="4" text="Cislo domu: "/>
+        <TextField GridPane.rowIndex="7" GridPane.columnIndex="5" />
+        <Label GridPane.rowIndex="7" GridPane.columnIndex="6" text="PSC: "/>
+        <TextField GridPane.rowIndex="7" GridPane.columnIndex="7" />
+
+    </GridPane>
+
+
+</VBox>
