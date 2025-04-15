@@ -1,0 +1,74 @@
+.main-container{
+    -fx-padding: 20 30 20 30;
+    -fx-spacing: 30;
+    -fx-alignment: center;
+}
+
+.label{
+    -fx-font-family: "serif";
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.text-field{
+    -fx-pref-width: 175;
+}
+
+.header-label{
+    -fx-font-family: "serif";
+    -fx-font-size: 18px;
+    -fx-text-fill: red;
+    -fx-font-weight: bolder;
+}
+
+
+.info{
+    -fx-padding: 0 0 0 30;
+    -fx-spacing: 10;
+    -fx-alignment: center;
+    -fx-background-color: #dedcdc;
+    -fx-background-radius: 10;
+
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
+
+.info HBox Label{
+    -fx-pref-width: 100;
+}
+
+/*button area*/
+
+.btn-area{
+    -fx-alignment: baseline-right;
+    -fx-spacing: 10;
+}
+
+.submit-btn{
+    -fx-background-radius: 15;
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
+.submit-btn:hover{
+    -fx-background-color: #97f597;
+}
+.submit-btn:pressed{
+    -fx-background-color: #4ff14f;
+    -fx-translate-y: 2;
+}
+
+.cancel-btn{
+    -fx-background-radius: 15;
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
+.cancel-btn:hover{
+    -fx-background-color: #f88a8a;
+}
+.cancel-btn:pressed{
+    -fx-background-color: #f54c4c;
+    -fx-translate-y: 2;
+}

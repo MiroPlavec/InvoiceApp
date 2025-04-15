@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.cevalp.invoiceapp.controllers.AddSenderViewController"
+            stylesheets="@../styles/addSender-view.css"
+            styleClass="main-container">
+
+    <VBox styleClass="info">
+        <Label styleClass="header-label" text="Informácie o dodávateľovi"/>
+
+        <HBox>
+            <Label text="Firma: "/>
+            <TextField/>
+        </HBox>
+
+        <HBox>
+            <Label text="IČO: "/>
+            <TextField/>
+        </HBox>
+
+        <HBox>
+            <Label text="DIČ: "/>
+            <TextField/>
+        </HBox>
+
+        <HBox>
+            <Label text="Mesto: "/>
+            <TextField/>
+        </HBox>
+
+        <HBox>
+            <Label text="PSČ: "/>
+            <TextField/>
+        </HBox>
+
+        <HBox>
+            <Label text="Ulica: "/>
+            <TextField/>
+        </HBox>
+
+        <HBox>
+            <Label text="Číslo domu: "/>
+            <TextField/>
+        </HBox>
+    </VBox>
+
+    <VBox styleClass="info">
+        <Label styleClass="header-label" text="Platobné údaje"/>
+        <HBox>
+            <Label text="Banka: "/>
+            <TextField/>
+        </HBox>
+        <HBox>
+            <Label text="Swift: "/>
+            <TextField/>
+        </HBox>
+        <HBox>
+            <Label text="IBAN: "/>
+            <TextField/>
+        </HBox>
+    </VBox>
+
+    <HBox styleClass="btn-area">
+        <Button styleClass="cancel-btn" text="Zrušiť"/>
+        <Button styleClass="submit-btn" text="Uložiť"/>
+    </HBox>
+
+
+
+</VBox>
