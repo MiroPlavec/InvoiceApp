@@ -73,7 +73,18 @@
         <TextField GridPane.rowIndex="2" GridPane.columnIndex="3" />
         <Label GridPane.rowIndex="2" GridPane.columnIndex="4" text="Suma:"/>
         <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" />
+    </GridPane>
 
+    <GridPane styleClass="gridPane">
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Dátum vyhotovenia:"/>
+        <DatePicker GridPane.rowIndex="0" GridPane.columnIndex="1" />
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="2" text="Dátum splatnosti:"/>
+        <DatePicker GridPane.rowIndex="0" GridPane.columnIndex="3" />
+    </GridPane>
+
+    <GridPane styleClass="gridPane-submit">
+        <Button GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="cancel-btn" text="Zrušiť"/>
+        <Button GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="submit-btn" text="Vytvoriť faktúru"/>
     </GridPane>
 
 
