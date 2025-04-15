@@ -1,0 +1,19 @@
+.vbox{
+    -fx-aligment: center;
+    -fx-padding: 20 50 20 50;
+    -fx-spacing: 0;
+}
+
+.gridPane{
+    -fx-aligment: center;
+    -fx-padding: 10 0 10 10;
+    -fx-hgap: 20;
+    -fx-vgap: 10;
+
+    -fx-background-color: #dedcdc;
+    -fx-background-radius: 10;
+
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+
+}
