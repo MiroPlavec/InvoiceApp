@@ -56,5 +56,25 @@
         <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" />
     </GridPane>
 
+    <GridPane styleClass="gridPane">
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Platobné údaje"/>
+        <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="Vybrať údaje"/>
+
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Banka:"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" />
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="2" text="Swift:"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="3" />
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="4" text="IBAN:"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="5" />
+
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Variabilný symbol:"/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" />
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="2" text="Konštantný symbol:"/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="3" />
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="4" text="Suma:"/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" />
+
+    </GridPane>
+
 
 </VBox>
