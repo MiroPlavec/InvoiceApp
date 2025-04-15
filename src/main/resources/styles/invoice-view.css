@@ -1,8 +1,9 @@
 .vbox{
     -fx-aligment: center;
-    -fx-padding: 20 50 20 50;
+    -fx-padding: 20 30 20 30;
     -fx-spacing: 10;
 }
+
 
 .gridPane{
     -fx-aligment: center;
@@ -15,5 +16,64 @@
 
     -fx-border-color: black;
     -fx-border-radius: 10;
+}
 
+.gridPane .text-field{
+    -fx-pref-width: 175;
+}
+
+.gridPane .label{
+    -fx-font-family: "serif";
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+    -fx-font-weight: bolder;
+}
+
+.gridPane .button{
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
+
+.gridPane .button:hover{
+    -fx-background-color: #bbd0ff;
+}
+.gridPane .button:pressed {
+    -fx-background-color: #a2bbfc;
+    -fx-translate-y: 2; /* slight press-down effect */
+}
+
+
+/* Submit button*/
+.gridPane-submit{
+    -fx-hgap: 50;
+}
+
+.submit-btn{
+    -fx-background-radius: 15;
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
+.submit-btn:hover{
+    -fx-background-color: #97f597;
+}
+.submit-btn:pressed{
+    -fx-background-color: #4ff14f;
+    -fx-translate-y: 2;
+}
+
+.cancel-btn{
+    -fx-background-radius: 15;
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
+.cancel-btn:hover{
+    -fx-background-color: #f88a8a;
+}
+.cancel-btn:pressed{
+    -fx-background-color: #f54c4c;
+    -fx-translate-y: 2;
 }
