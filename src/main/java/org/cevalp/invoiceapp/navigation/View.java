@@ -2,7 +2,8 @@ package org.cevalp.invoiceapp.navigation;
 
 public enum View {
     MAIN("main-view.fxml", true),
-    INVOICE("invoice-view.fxml",false);
+    INVOICE("invoice-view.fxml",false),
+    SENDER("addSender-view.fxml", false);
 
     private final String viewName;
     private final boolean isCacheable;

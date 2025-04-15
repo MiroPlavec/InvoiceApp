@@ -17,37 +17,37 @@
 
         <HBox>
             <Label text="Firma: "/>
-            <TextField/>
+            <TextField fx:id="companyName" />
         </HBox>
 
         <HBox>
             <Label text="IČO: "/>
-            <TextField/>
+            <TextField fx:id="ico"/>
         </HBox>
 
         <HBox>
             <Label text="DIČ: "/>
-            <TextField/>
+            <TextField fx:id="dic"/>
         </HBox>
 
         <HBox>
             <Label text="Mesto: "/>
-            <TextField/>
+            <TextField fx:id="city"/>
         </HBox>
 
         <HBox>
             <Label text="PSČ: "/>
-            <TextField/>
+            <TextField fx:id="psc"/>
         </HBox>
 
         <HBox>
             <Label text="Ulica: "/>
-            <TextField/>
+            <TextField fx:id="street"/>
         </HBox>
 
         <HBox>
             <Label text="Číslo domu: "/>
-            <TextField/>
+            <TextField fx:id="houseNumber"/>
         </HBox>
     </VBox>
 
@@ -55,21 +55,21 @@
         <Label styleClass="header-label" text="Platobné údaje"/>
         <HBox>
             <Label text="Banka: "/>
-            <TextField/>
+            <TextField fx:id="bank"/>
         </HBox>
         <HBox>
             <Label text="Swift: "/>
-            <TextField/>
+            <TextField fx:id="swift"/>
         </HBox>
         <HBox>
             <Label text="IBAN: "/>
-            <TextField/>
+            <TextField fx:id="iban"/>
         </HBox>
     </VBox>
 
     <HBox styleClass="btn-area">
-        <Button styleClass="cancel-btn" text="Zrušiť"/>
-        <Button styleClass="submit-btn" text="Uložiť"/>
+        <Button styleClass="cancel-btn" text="Zrušiť" onAction="#back"/>
+        <Button styleClass="submit-btn" text="Uložiť" onAction="#save"/>
     </HBox>
 
 

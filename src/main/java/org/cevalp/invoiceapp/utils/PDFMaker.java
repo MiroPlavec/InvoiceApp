@@ -1,6 +1,7 @@
 package org.cevalp.invoiceapp.utils;
 
 import org.cevalp.invoiceapp.model.AbstractUser;
+import org.cevalp.invoiceapp.model.InvoiceDetails;
 import org.cevalp.invoiceapp.model.Recipient;
 import org.cevalp.invoiceapp.model.Sender;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -21,6 +22,8 @@ public class PDFMaker implements AutoCloseable {
 
     private final Sender sender;
     private final Recipient recipient;
+    private final InvoiceDetails invoiceDetails;
+
     private final PDDocument document;
     private final PDPage page;
     private final PDPageContentStream contentStream;
@@ -55,9 +58,10 @@ public class PDFMaker implements AutoCloseable {
     private static final Color BACKGROUND = new Color(207, 232, 252);
 
 
-    public PDFMaker(Sender sender, Recipient recipient, byte[] qrArray) throws IOException {
+    public PDFMaker(Sender sender, Recipient recipient, InvoiceDetails invoiceDetails, byte[] qrArray) throws IOException {
         this.sender = sender;
         this.recipient = recipient;
+        this.invoiceDetails = invoiceDetails;
         this.qrArray = qrArray;
 
         this.document = new PDDocument();
@@ -117,7 +121,7 @@ public class PDFMaker implements AutoCloseable {
 
         // address
         contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
-        contentStream.showText(entity.getAddress());
+        contentStream.showText(entity.getCity());
 
         // postcode
         contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
@@ -234,13 +238,13 @@ public class PDFMaker implements AutoCloseable {
         contentStream.newLineAtOffset(-space, -TEXT_SIZE_NORMAL - PADDING);
         contentStream.showText("Variabilný symbol:");
         contentStream.newLineAtOffset(space, 0);
-        contentStream.showText(sender.getVariableSymbol());
+        contentStream.showText(invoiceDetails.getVariableSymbol());
 
         // constant symbol
         contentStream.newLineAtOffset(-space, -TEXT_SIZE_NORMAL - PADDING);
         contentStream.showText("Konsštantný symbol:");
         contentStream.newLineAtOffset(space, 0);
-        contentStream.showText(sender.getConstantSymbol());
+        contentStream.showText(invoiceDetails.getConstantSymbol());
 
         contentStream.endText();
 

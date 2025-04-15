@@ -2,14 +2,16 @@ package org.cevalp.invoiceapp.model;
 
 public abstract class AbstractUser {
     private String companyName;
-    private String address;
+    private String city;
+    private String street;
     private String postcode;
     private String ICO;
     private String DIC;
 
-    public AbstractUser(String companyName, String address, String postcode, String ICO, String DIC) {
+    public AbstractUser(String companyName, String city, String street, String postcode, String ICO, String DIC) {
         this.companyName = companyName;
-        this.address = address;
+        this.city = city;
+        this.street = street;
         this.postcode = postcode;
         this.ICO = ICO;
         this.DIC = DIC;
@@ -19,8 +21,8 @@ public abstract class AbstractUser {
         return companyName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCity() {
+        return city;
     }
 
     public String getPostcode() {
@@ -33,5 +35,9 @@ public abstract class AbstractUser {
 
     public String getDIC() {
         return DIC;
+    }
+
+    public String getStreet() {
+        return street;
     }
 }
