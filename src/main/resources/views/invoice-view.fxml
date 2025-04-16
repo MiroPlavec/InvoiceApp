@@ -18,20 +18,20 @@
         <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="Vybrať dodávateľa"/>
 
         <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Firma:"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="senderCompanyName"/>
         <Label GridPane.rowIndex="1" GridPane.columnIndex="2" text="IČO: "/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="3" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="3" fx:id="senderIco"/>
         <Label GridPane.rowIndex="1" GridPane.columnIndex="4" text="DIČ: "/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="5" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="5" fx:id="senderDic"/>
 
         <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Mesto: "/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" />
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="senderCity"/>
         <Label GridPane.rowIndex="2" GridPane.columnIndex="2" text="Ulica: "/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="3" fx:id="senderStreet"/>
         <Label GridPane.rowIndex="2" GridPane.columnIndex="4" text="Číslo domu: "/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" />
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" fx:id="senderHouseNumber"/>
         <Label GridPane.rowIndex="3" GridPane.columnIndex="0" text="PSČ: "/>
-        <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" />
+        <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="senderPsc"/>
     </GridPane>
 
     
@@ -40,20 +40,20 @@
         <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="Vybrať prijímateľa"/>
 
         <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Firma:"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="receiverCompanyName"/>
         <Label GridPane.rowIndex="1" GridPane.columnIndex="2" text="IČO: "/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="3" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="3" fx:id="receiverIco"/>
         <Label GridPane.rowIndex="1" GridPane.columnIndex="4" text="DIČ: "/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="5" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="5" fx:id="receiverDic"/>
 
         <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Mesto: "/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" />
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="receiverCity"/>
         <Label GridPane.rowIndex="2" GridPane.columnIndex="2" text="Ulica: "/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="3" fx:id="receiverStreet"/>
         <Label GridPane.rowIndex="2" GridPane.columnIndex="4" text="Číslo domu: "/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" />
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" fx:id="receiverHouseNumber"/>
         <Label GridPane.rowIndex="3" GridPane.columnIndex="0" text="PSČ: "/>
-        <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" />
+        <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="receiverPsc"/>
     </GridPane>
 
     <GridPane styleClass="gridPane">
@@ -61,31 +61,37 @@
         <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="Vybrať údaje"/>
 
         <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Banka:"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="senderBank"/>
         <Label GridPane.rowIndex="1" GridPane.columnIndex="2" text="Swift:"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="3" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="3" fx:id="senderSwift"/>
         <Label GridPane.rowIndex="1" GridPane.columnIndex="4" text="IBAN:"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="5" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="5" fx:id="senderIban"/>
 
         <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Variabilný symbol:"/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" />
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="variableSymbol"/>
         <Label GridPane.rowIndex="2" GridPane.columnIndex="2" text="Konštantný symbol:"/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="3" />
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="3" fx:id="constantSymbol"/>
         <Label GridPane.rowIndex="2" GridPane.columnIndex="4" text="Suma:"/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" />
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="5" fx:id="amount"/>
     </GridPane>
 
     <GridPane styleClass="gridPane">
         <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Dátum vyhotovenia:"/>
-        <DatePicker GridPane.rowIndex="0" GridPane.columnIndex="1" />
+        <DatePicker GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="creationDate"/>
         <Label GridPane.rowIndex="0" GridPane.columnIndex="2" text="Dátum splatnosti:"/>
-        <DatePicker GridPane.rowIndex="0" GridPane.columnIndex="3" />
+        <DatePicker GridPane.rowIndex="0" GridPane.columnIndex="3" fx:id="payDueDate" />
+
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Číslo faktúry:"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="invoiceId"/>
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="2" text="Popis:"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="3" GridPane.columnSpan="3" prefWidth="400" minWidth="400"
+        fx:id="description"/>
     </GridPane>
 
-    <GridPane styleClass="gridPane-submit">
-        <Button GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="cancel-btn" text="Zrušiť"/>
-        <Button GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="submit-btn" text="Vytvoriť faktúru"/>
-    </GridPane>
+    <HBox styleClass="btn-area">
+        <Button styleClass="cancel-btn" text="Zrušiť" onAction="#back"/>
+        <Button styleClass="submit-btn" text="Vytvoriť faktúru" onAction="#createInvoice"/>
+    </HBox>
 
 
 </VBox>

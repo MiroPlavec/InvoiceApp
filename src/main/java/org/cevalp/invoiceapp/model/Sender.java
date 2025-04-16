@@ -14,6 +14,7 @@ public class Sender extends AbstractUser{
         super(senderBuilder.companyName,
                 senderBuilder.city,
                 senderBuilder.street,
+                senderBuilder.houseNumber,
                 senderBuilder.postcode,
                 senderBuilder.ico,
                 senderBuilder.dic);
@@ -49,6 +50,7 @@ public class Sender extends AbstractUser{
         private String companyName;
         private String city;
         private String street;
+        private String houseNumber;
         private String postcode;
         private String ico;
         private String dic;
@@ -77,20 +79,22 @@ public class Sender extends AbstractUser{
             return this;
         }
 
+        public SenderBuilder houseNumber(String houseNumber){
+            this.houseNumber = houseNumber;
+            return this;
+        }
+
         public SenderBuilder postcode(String postcode){
-            if(postcode.matches("[0-9]+")) throw new RuntimeException("PSC must contain only numerical values. -> IMPLEMENTS LATER");
             this.postcode = postcode;
             return this;
         }
 
         public SenderBuilder ico(String ico){
-            if(ico.matches("[0-9]+")) throw new RuntimeException("ICO must contain only numerical values. -> IMPLEMENTS LATER");
             this.ico = ico;
             return this;
         }
 
         public SenderBuilder dic(String dic){
-            if(dic.matches("[0-9]+")) throw new RuntimeException("DIC must contain only numerical values. -> IMPLEMENTS LATER");
             this.dic = dic;
             return this;
         }
@@ -101,7 +105,6 @@ public class Sender extends AbstractUser{
         }
 
         public SenderBuilder iban(String iban){
-            if(!checkIban(iban)) throw new RuntimeException("Invalid IBAN -> IMPLEMENTS LATER");
             getNumbersFromIban(iban);
             this.iban = iban;
             return this;

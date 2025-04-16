@@ -18,7 +18,7 @@ import java.io.IOException;
 public class PDFMaker implements AutoCloseable {
 
 
-    private static String PATH = "D:\\InvoiceMaker\\src\\main\\resources\\f.pdf";
+    private static String PATH = "D:\\InvoiceApp\\src\\main\\resources\\f.pdf";
 
     private final Sender sender;
     private final Recipient recipient;
@@ -73,8 +73,8 @@ public class PDFMaker implements AutoCloseable {
         DOCUMENT_Y_END = page.getMediaBox().getHeight() - 30;
 
         //fonts
-        normalFont = PDType0Font.load(document, PDFMaker.class.getClassLoader().getResourceAsStream("fonts/Arial.ttf"));
-        boldFont = PDType0Font.load(document, PDFMaker.class.getClassLoader().getResourceAsStream("fonts/Arial_Bold.ttf"));
+        normalFont = PDType0Font.load(document, PDFMaker.class.getResourceAsStream("/fonts/Arial.ttf"));
+        boldFont = PDType0Font.load(document, PDFMaker.class.getResourceAsStream("/fonts/Arial_Bold.ttf"));
     }
 
     public void makePDF() throws IOException {
@@ -94,7 +94,7 @@ public class PDFMaker implements AutoCloseable {
         contentStream.beginText();
         contentStream.setFont(boldFont, TEXT_SIZE_BIGGER);
         contentStream.setNonStrokingColor(BLUE);
-        String text = "FAKTÚRA č. ?/2025";
+        String text = "FAKTÚRA č. " + invoiceDetails.getInvoiceId();
         float width = boldFont.getStringWidth(text) / 1000 * TEXT_SIZE_BIGGER;
         contentStream.newLineAtOffset((DOCUMENT_X_END - width), DOCUMENT_Y_END + 5);
         contentStream.showText(text);
@@ -160,7 +160,7 @@ public class PDFMaker implements AutoCloseable {
     }
 
     private void makeDatePart() throws IOException {
-        float space = 150;
+        float space = 175;
 
         contentStream.setNonStrokingColor(BACKGROUND);
         contentStream.addRect(DOCUMENT_X_START, DATE_PART_START-TEXT_SIZE_NORMAL, (DOCUMENT_X_END - DOCUMENT_X_START), 3*TEXT_SIZE_NORMAL);
@@ -169,23 +169,23 @@ public class PDFMaker implements AutoCloseable {
         contentStream.beginText();
         contentStream.setNonStrokingColor(BLACK);
 
-        contentStream.newLineAtOffset(DOCUMENT_X_START + X_OFFSET, DATE_PART_START);
+        contentStream.newLineAtOffset(DOCUMENT_X_START+10, DATE_PART_START);
         contentStream.setFont(normalFont, TEXT_SIZE_NORMAL);
         contentStream.showText("Dátum vyhotovenia: ");
         contentStream.setFont(boldFont, TEXT_SIZE_NORMAL);
-        contentStream.showText("DATUM");
+        contentStream.showText(invoiceDetails.getCreationDate());
 
         contentStream.newLineAtOffset(space, 0);
         contentStream.setFont(normalFont, TEXT_SIZE_NORMAL);
         contentStream.showText("Dátum splatnosti: ");
         contentStream.setFont(boldFont, TEXT_SIZE_NORMAL);
-        contentStream.showText("DATUM");
+        contentStream.showText(invoiceDetails.getPayDueDate());
 
         contentStream.newLineAtOffset(space, 0);
         contentStream.setFont(normalFont, TEXT_SIZE_NORMAL);
         contentStream.showText("Forma úhrady: ");
         contentStream.setFont(boldFont, TEXT_SIZE_NORMAL);
-        contentStream.showText("PREVOD");
+        contentStream.showText("Prevodom");
 
         contentStream.endText();
     }
@@ -283,11 +283,11 @@ public class PDFMaker implements AutoCloseable {
         contentStream.newLineAtOffset(DOCUMENT_X_START + X_OFFSET, SERVICE_PART_START - 3*SPACE);
         contentStream.setFont(normalFont, TEXT_SIZE_NORMAL);
         contentStream.setNonStrokingColor(BLUE);
-        contentStream.showText("Fakturujem vam za prace na vasej stavbe v Nemecku");
+        contentStream.showText(invoiceDetails.getDescription());
 
         contentStream.newLineAtOffset(space,0);
         contentStream.setNonStrokingColor(BLACK);
-        contentStream.showText("2550.00 eur");
+        contentStream.showText(invoiceDetails.getAmount() + " eur");
 
         contentStream.endText();
 
@@ -307,7 +307,7 @@ public class PDFMaker implements AutoCloseable {
         contentStream.showText("Suma na úhradu: ");
 
         contentStream.setFont(boldFont, TEXT_SIZE_BIGGER);
-        contentStream.showText("2050.00 EUR");
+        contentStream.showText(invoiceDetails.getAmount() + " EUR");
         contentStream.endText();
 
     }
@@ -316,7 +316,7 @@ public class PDFMaker implements AutoCloseable {
         contentStream.beginText();
         contentStream.newLineAtOffset(DOCUMENT_X_START+PADDING, DOCUMENT_Y_START+PADDING);
         contentStream.setFont(normalFont, TEXT_SIZE_BIGGER);
-        contentStream.showText("Vystavil(a): Miroslav Plavec");
+        contentStream.showText("Vystavil(a): " + sender.getCompanyName());
         contentStream.endText();
     }
 

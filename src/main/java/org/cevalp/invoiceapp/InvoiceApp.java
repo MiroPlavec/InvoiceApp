@@ -13,9 +13,6 @@ import java.net.URL;
 
 public class InvoiceApp extends Application {
 
-    private static final int STAGE_WIDTH = 1000;
-    private static final int STAGE_HEIGHT = 700;
-
     public static void main(String[] args) {
         Application.launch(args);
     }

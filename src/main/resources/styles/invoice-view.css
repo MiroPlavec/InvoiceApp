@@ -45,9 +45,10 @@
 }
 
 
-/* Submit button*/
-.gridPane-submit{
-    -fx-hgap: 50;
+/* buttons */
+.btn-area{
+    -fx-alignment: baseline-right;
+    -fx-spacing: 10;
 }
 
 .submit-btn{
