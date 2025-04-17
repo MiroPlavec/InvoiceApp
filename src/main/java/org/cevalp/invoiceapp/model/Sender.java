@@ -25,6 +25,17 @@ public class Sender extends AbstractUser{
         this.bankNumber = senderBuilder.bankNumber;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +  "Sender{" +
+                "bank='" + bank + '\'' +
+                ", iban='" + iban + '\'' +
+                ", swift='" + swift + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", bankNumber='" + bankNumber + '\'' +
+                '}';
+    }
+
     public String getBank() {
         return bank;
     }

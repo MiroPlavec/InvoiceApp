@@ -6,8 +6,8 @@ public abstract class AbstractUser {
     private String street;
     private String houseNumber;
     private String postcode;
-    private String ICO;
-    private String DIC;
+    private String ico;
+    private String dic;
 
     public AbstractUser(String companyName, String city, String street, String houseNumber, String postcode, String ICO, String DIC) {
         this.companyName = companyName;
@@ -15,8 +15,8 @@ public abstract class AbstractUser {
         this.street = street;
         this.houseNumber = houseNumber;
         this.postcode = postcode;
-        this.ICO = ICO;
-        this.DIC = DIC;
+        this.ico = ICO;
+        this.dic = DIC;
     }
 
     public String getCompanyName() {
@@ -31,15 +31,28 @@ public abstract class AbstractUser {
         return postcode;
     }
 
-    public String getICO() {
-        return ICO;
+    public String getIco() {
+        return ico;
     }
 
-    public String getDIC() {
-        return DIC;
+    public String getDic() {
+        return dic;
     }
 
     public String getStreet() {
         return street;
+    }
+
+    @Override
+    public String toString() {
+        return "AbstractUser{" +
+                "companyName='" + companyName + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", houseNumber='" + houseNumber + '\'' +
+                ", postcode='" + postcode + '\'' +
+                ", ico='" + ico + '\'' +
+                ", dic='" + dic + '\'' +
+                '}';
     }
 }

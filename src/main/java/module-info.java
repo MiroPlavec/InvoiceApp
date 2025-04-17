@@ -9,6 +9,7 @@ module org.cevalp.invoiceapp {
     requires org.tukaani.xz;
     requires java.desktop;
     requires com.google.gson;
+    requires jcommander;
 
     opens org.cevalp.invoiceapp to javafx.fxml;
     opens org.cevalp.invoiceapp.controllers to javafx.fxml;

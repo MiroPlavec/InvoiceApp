@@ -132,14 +132,14 @@ public class PDFMaker implements AutoCloseable {
         contentStream.setFont(boldFont, TEXT_SIZE_NORMAL);
         contentStream.showText("IČO: ");
         contentStream.setFont(normalFont, TEXT_SIZE_NORMAL);
-        contentStream.showText(entity.getICO());
+        contentStream.showText(entity.getIco());
 
         // DIC
         contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
         contentStream.setFont(boldFont, TEXT_SIZE_NORMAL);
         contentStream.showText("DIČ: ");
         contentStream.setFont(normalFont, TEXT_SIZE_NORMAL);
-        contentStream.showText(entity.getDIC());
+        contentStream.showText(entity.getDic());
 
         if(entity instanceof Sender){
             contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
