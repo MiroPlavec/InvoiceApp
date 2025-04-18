@@ -31,8 +31,15 @@ public abstract class ViewSwitcher {
         scene.setRoot(root);
     }
 
-    public static void popupWindow(String text){
+    public static void infoAlert(String text){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText(text);
+        alert.showAndWait();
+    }
+
+    public static void errorAlert(String text){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
         alert.setContentText(text);
         alert.showAndWait();

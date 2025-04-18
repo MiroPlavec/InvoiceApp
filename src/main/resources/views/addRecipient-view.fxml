@@ -13,7 +13,7 @@
             styleClass="main-container">
 
     <VBox styleClass="info">
-        <Label styleClass="header-label" text="Informácie o dodávateľovi"/>
+        <Label styleClass="header-label" text="Informácie o prijemcovi"/>
 
         <HBox>
             <Label text="Firma: "/>
@@ -52,8 +52,8 @@
     </VBox>
 
     <HBox styleClass="btn-area">
-        <Button styleClass="cancel-btn" text="Zrušiť"/>
-        <Button styleClass="submit-btn" text="Uložiť"/>
+        <Button styleClass="cancel-btn" text="Zrušiť" onAction="#back"/>
+        <Button styleClass="submit-btn" text="Uložiť" onAction="#save"/>
     </HBox>
 
 

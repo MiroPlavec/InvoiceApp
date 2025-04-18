@@ -74,7 +74,7 @@ public class AddSenderViewController {
                 .build();
 
             dataManager.save(sender);
-            ViewSwitcher.popupWindow("Odosielateľ bol vytvorený");
+            ViewSwitcher.infoAlert("Odosielateľ bol vytvorený");
             back();
         } catch (InvalidIbanException e){
             invalidIban();
