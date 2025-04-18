@@ -24,7 +24,7 @@
 
 
 .info{
-    -fx-padding: 0 0 0 30;
+    -fx-padding: 10 0 20 30;
     -fx-spacing: 10;
     -fx-alignment: center;
     -fx-background-color: #dedcdc;

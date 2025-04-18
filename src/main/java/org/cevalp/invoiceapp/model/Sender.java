@@ -116,6 +116,7 @@ public class Sender extends AbstractUser{
         }
 
         public SenderBuilder iban(String iban){
+            if(!checkIban(iban)) throw new InvalidIbanException("Iban %s is invalid".formatted(iban));
             getNumbersFromIban(iban);
             this.iban = iban;
             return this;

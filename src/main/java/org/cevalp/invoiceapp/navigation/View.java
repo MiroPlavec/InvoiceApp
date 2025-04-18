@@ -1,17 +1,15 @@
 package org.cevalp.invoiceapp.navigation;
 
 public enum View {
-    MAIN("main-view.fxml", true),
-    INVOICE("invoice-view.fxml",false),
-    SENDER("addSender-view.fxml", false);
+    MAIN("main-view.fxml"),
+    INVOICE("invoice-view.fxml"),
+    SENDER("addSender-view.fxml");
 
     private final String viewName;
-    private final boolean isCacheable;
     private final String folder = "/views/";
 
-    View(String viewName, boolean isCacheable){
+    View(String viewName){
         this.viewName = viewName;
-        this.isCacheable = isCacheable;
     }
 
     public String getViewName() {

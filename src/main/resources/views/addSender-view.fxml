@@ -10,7 +10,8 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.cevalp.invoiceapp.controllers.AddSenderViewController"
             stylesheets="@../styles/addSender-view.css"
-            styleClass="main-container">
+            styleClass="main-container"
+            fx:id="root">
 
     <VBox styleClass="info">
         <Label styleClass="header-label" text="Informácie o dodávateľovi"/>
