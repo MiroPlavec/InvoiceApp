@@ -27,8 +27,8 @@ public class InvoiceApp extends Application {
         Parent root = FXMLLoader.load(mainViewUrl);
 
         Scene mainScene = new Scene(root, 1000, 700);
-        ViewSwitcher.setScene(mainScene);
         stage.setScene(mainScene);
+        ViewSwitcher.setScene(stage);
         stage.show();
     }
 

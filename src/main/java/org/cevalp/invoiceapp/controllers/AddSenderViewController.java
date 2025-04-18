@@ -60,7 +60,7 @@ public class AddSenderViewController {
 
     public void save(){
         try{
-        Sender sender = new Sender.SenderBuilder()
+            Sender sender = new Sender.SenderBuilder()
                 .company(companyName.getText())
                 .ico(ico.getText())
                 .dic(dic.getText())
@@ -74,12 +74,13 @@ public class AddSenderViewController {
                 .build();
 
             dataManager.save(sender);
+            ViewSwitcher.popupWindow("Odosielateľ bol vytvorený");
+            back();
         } catch (InvalidIbanException e){
             invalidIban();
         }catch (DataManagerException e) {
             throw new RuntimeException(e);
         }
-
     }
 
 
