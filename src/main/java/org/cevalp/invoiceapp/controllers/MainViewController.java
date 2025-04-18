@@ -14,4 +14,8 @@ public class MainViewController {
         ViewSwitcher.switchScene(View.SENDER);
     }
 
+    public void addRecipient(){
+        ViewSwitcher.switchScene(View.RECIPIENT);
+    }
+
 }

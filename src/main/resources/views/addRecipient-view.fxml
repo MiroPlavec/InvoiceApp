@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.cevalp.invoiceapp.controllers.AddRecipientViewController"
+            stylesheets="@../styles/addSender-view.css"
+            styleClass="main-container">
+
+    <VBox styleClass="info">
+        <Label styleClass="header-label" text="Informácie o dodávateľovi"/>
+
+        <HBox>
+            <Label text="Firma: "/>
+            <TextField fx:id="companyName" />
+        </HBox>
+
+        <HBox>
+            <Label text="IČO: "/>
+            <TextField fx:id="ico"/>
+        </HBox>
+
+        <HBox>
+            <Label text="DIČ: "/>
+            <TextField fx:id="dic"/>
+        </HBox>
+
+        <HBox>
+            <Label text="Mesto: "/>
+            <TextField fx:id="city"/>
+        </HBox>
+
+        <HBox>
+            <Label text="PSČ: "/>
+            <TextField fx:id="psc"/>
+        </HBox>
+
+        <HBox>
+            <Label text="Ulica: "/>
+            <TextField fx:id="street"/>
+        </HBox>
+
+        <HBox>
+            <Label text="Číslo domu: "/>
+            <TextField fx:id="houseNumber"/>
+        </HBox>
+    </VBox>
+
+    <HBox styleClass="btn-area">
+        <Button styleClass="cancel-btn" text="Zrušiť"/>
+        <Button styleClass="submit-btn" text="Uložiť"/>
+    </HBox>
+
+
+</VBox>
