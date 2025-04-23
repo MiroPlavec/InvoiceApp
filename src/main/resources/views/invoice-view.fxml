@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
+<?import java.lang.String?>
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.cevalp.invoiceapp.controllers.InvoiceViewController"
-            stylesheets="@../styles/invoice-view.css"
-            styleClass="vbox">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.cevalp.invoiceapp.controllers.InvoiceViewController"
+      stylesheets="@../styles/invoice-view.css"
+      styleClass="vbox">
 
 
     <GridPane styleClass="gridPane">
@@ -79,6 +77,16 @@
         <DatePicker GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="creationDate"/>
         <Label GridPane.rowIndex="0" GridPane.columnIndex="2" text="Dátum splatnosti:"/>
         <DatePicker GridPane.rowIndex="0" GridPane.columnIndex="3" fx:id="payDueDate" />
+
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="4" text="Sposob platby:"/>
+        <ComboBox GridPane.rowIndex="0" GridPane.columnIndex="5" fx:id="paymentWay">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Prevodom"/>
+                    <String fx:value="Hotovosť"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
 
         <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Číslo faktúry:"/>
         <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="invoiceId"/>

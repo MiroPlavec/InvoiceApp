@@ -1,6 +1,7 @@
 package org.cevalp.invoiceapp.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import org.cevalp.invoiceapp.model.InvoiceDetails;
@@ -69,6 +70,8 @@ public class InvoiceViewController {
     private TextField invoiceId;
     @FXML
     private TextField description;
+    @FXML
+    private ComboBox<String> paymentWay;
 
 
 
@@ -129,6 +132,7 @@ public class InvoiceViewController {
                 .payDueDate(payDueDate.getValue().format(formatter))
                 .invoiceId(invoiceId.getText())
                 .description(description.getText())
+                .paymentWay(paymentWay.getValue())
                 .build();
     }
 

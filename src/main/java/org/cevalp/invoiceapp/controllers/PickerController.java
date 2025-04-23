@@ -1,5 +1,6 @@
 package org.cevalp.invoiceapp.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import org.cevalp.invoiceapp.model.AbstractUser;
@@ -28,7 +29,12 @@ public class PickerController {
     }
 
     public void getSenderInfo(){
-        int idx = userListView.getSelectionModel().getSelectedIndices().get(0);
+        ObservableList<Integer> indices = userListView.getSelectionModel().getSelectedIndices();
+        if(indices.isEmpty()){
+            closePicker();
+            return;
+        }
+        int idx = indices.get(0);
         AbstractUser pickedUser = users.get(idx);
         if(pickedUser instanceof Sender sender) invoiceViewController.setSenderData(sender);
         if(pickedUser instanceof Recipient recipient) invoiceViewController.setReceiverData(recipient);

@@ -8,6 +8,7 @@ public class InvoiceDetails {
     private String payDueDate;
     private String description;
     private String invoiceId;
+    private String paymentWay;
 
     private InvoiceDetails(InvoiceDetailsBuilder builder){
         this.variableSymbol = builder.variableSymbol;
@@ -17,6 +18,7 @@ public class InvoiceDetails {
         this.payDueDate = builder.payDueDate;
         this.description = builder.description;
         this.invoiceId = builder.invoiceId;
+        this.paymentWay = builder.paymentWay;
     }
 
     public String getVariableSymbol() {
@@ -47,6 +49,10 @@ public class InvoiceDetails {
         return invoiceId;
     }
 
+    public String getPaymentWay() {
+        return paymentWay;
+    }
+
     public static class InvoiceDetailsBuilder{
         private String variableSymbol;
         private String constantSymbol;
@@ -55,6 +61,7 @@ public class InvoiceDetails {
         private String payDueDate;
         private String description;
         private String invoiceId;
+        private String paymentWay;
 
         public InvoiceDetails build(){
             return new InvoiceDetails(this);
@@ -92,6 +99,11 @@ public class InvoiceDetails {
 
         public InvoiceDetailsBuilder invoiceId(String invoiceId){
             this.invoiceId = invoiceId;
+            return this;
+        }
+
+        public InvoiceDetailsBuilder paymentWay(String paymentWay){
+            this.paymentWay = paymentWay;
             return this;
         }
     }

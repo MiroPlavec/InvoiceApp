@@ -120,8 +120,15 @@ public class PDFMaker implements AutoCloseable {
         contentStream.showText(entity.getCompanyName());
 
         // address
-        contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
-        contentStream.showText(entity.getCity());
+        if(entity.getStreet().isBlank()){
+            contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
+            contentStream.showText(entity.getCity() + " " + entity.getHouseNumber());
+        }else{
+            contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
+            contentStream.showText(entity.getStreet() + " " + entity.getHouseNumber());
+            contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
+            contentStream.showText(entity.getCity());
+        }
 
         // postcode
         contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
@@ -185,7 +192,7 @@ public class PDFMaker implements AutoCloseable {
         contentStream.setFont(normalFont, TEXT_SIZE_NORMAL);
         contentStream.showText("Forma úhrady: ");
         contentStream.setFont(boldFont, TEXT_SIZE_NORMAL);
-        contentStream.showText("Prevodom");
+        contentStream.showText(invoiceDetails.getPaymentWay());
 
         contentStream.endText();
     }
