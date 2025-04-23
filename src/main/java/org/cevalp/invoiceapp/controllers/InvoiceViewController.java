@@ -113,7 +113,7 @@ public class InvoiceViewController {
 
     private boolean checkData(){
         if (senderSwift.getText().isBlank()){
-            ViewSwitcher.errorAlert("Swift musí byť zadaný kvôli vytvorení QR kódu");
+            ViewSwitcher.errorAlert("Swift musí byť zadaný kvôli na vytvorenie QR kódu");
             return false;
         }
         if(amount.getText().isBlank()){

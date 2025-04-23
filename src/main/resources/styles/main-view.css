@@ -1,0 +1,19 @@
+.main-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #354860;
+    -fx-padding: 20 0 40 0;
+}
+
+Button {
+    -fx-font-size: 16px;
+    -fx-pref-width: 200px;      /* Set all buttons to the same width */
+    -fx-padding: 10 20;
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+}
+
+Button:hover {
+    -fx-background-color: #2980b9;
+}

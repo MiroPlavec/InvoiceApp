@@ -151,7 +151,7 @@ public class PDFMaker implements AutoCloseable {
         if(entity instanceof Sender){
             contentStream.newLineAtOffset(0, -TEXT_SIZE_NORMAL - PADDING);
             contentStream.setFont(boldFont, TEXT_SIZE_NORMAL);
-            contentStream.showText("Neplatiteľ DPH");
+            contentStream.showText("Firma nie je platiteľom DPH");
         }
 
         contentStream.endText();
@@ -249,7 +249,7 @@ public class PDFMaker implements AutoCloseable {
 
         // constant symbol
         contentStream.newLineAtOffset(-space, -TEXT_SIZE_NORMAL - PADDING);
-        contentStream.showText("Konsštantný symbol:");
+        contentStream.showText("Konštantný symbol:");
         contentStream.newLineAtOffset(space, 0);
         contentStream.showText(invoiceDetails.getConstantSymbol());
 
