@@ -34,7 +34,7 @@ public class QREncoder {
     private static final int QR_SIZE = 100;
 
 
-    public String encode(PaymentDetails details){
+    public String encode(PaymentDetails details) throws IOException {
 
         // 1. step -> compute checksum
         String paymentDetails = details.getDetail();
@@ -75,7 +75,7 @@ public class QREncoder {
         return ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(checksum).array();
     }
 
-    private byte[] compress(byte[] data) {
+    private byte[] compress(byte[] data) throws IOException {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
         // same options as in document
@@ -94,25 +94,21 @@ public class QREncoder {
         try (LZMAOutputStream lzmaOutputStream = new LZMAOutputStream(outputStream, options, false)){
             lzmaOutputStream.write(data);
         }catch (IOException e){
-            throw new RuntimeException(e);
+            throw new IOException(e);
         }
 
         return outputStream.toByteArray();
 
     }
 
-    private byte[] concatData(byte[] compressedData, short uncompressedDataLength) {
+    private byte[] concatData(byte[] compressedData, short uncompressedDataLength) throws IOException {
         ByteArrayOutputStream finalArray = new ByteArrayOutputStream();
         byte[] head = {0, 0}; // 16 bits header
         byte[] length = ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort(uncompressedDataLength).array(); // length of uncompressed data
 
-        try {
-            finalArray.write(head);
-            finalArray.write(length);
-            finalArray.write(compressedData);
-        } catch (IOException e) {
-            throw new RuntimeException("Error while concatenating all data into final array");
-        }
+        finalArray.write(head);
+        finalArray.write(length);
+        finalArray.write(compressedData);
 
         return finalArray.toByteArray();
     }
@@ -140,40 +136,34 @@ public class QREncoder {
         return resultBuilder.toString();
     }
 
-    public byte[] createQrCode(String content){
+    public byte[] createQrCode(String content) throws WriterException, IOException {
         byte[] imageArray;
-        try {
-            Map<EncodeHintType, Object> hints = new HashMap<>();
-            hints.put(EncodeHintType.MARGIN, 0);
-            BitMatrix bitMatrix = new QRCodeWriter().encode(content, BarcodeFormat.QR_CODE, QR_SIZE, QR_SIZE, hints);
-            BufferedImage qrCode = MatrixToImageWriter.toBufferedImage(bitMatrix);
 
-            InputStream logoStream = getClass().getClassLoader().getResourceAsStream("logo.png");
-            if(logoStream == null){
-                throw new LogoNotFoundException("Can not find logo image in \"resources\" folder");
-            }
-            BufferedImage logo = ImageIO.read(logoStream);
+        Map<EncodeHintType, Object> hints = new HashMap<>();
+        hints.put(EncodeHintType.MARGIN, 0);
+        BitMatrix bitMatrix = new QRCodeWriter().encode(content, BarcodeFormat.QR_CODE, QR_SIZE, QR_SIZE, hints);
+        BufferedImage qrCode = MatrixToImageWriter.toBufferedImage(bitMatrix);
 
-            int qrPositionX = (logo.getWidth() / 2) - (qrCode.getWidth() / 2);
-            // divided by 8 is because of "PAY BY SQUARE" title at the bottom of the logo image
-            int qrPositionY = (logo.getHeight() / 2) - (qrCode.getHeight() / 2) - (qrCode.getHeight() / 8);
-
-            BufferedImage combined = new BufferedImage(logo.getWidth(), logo.getHeight(), BufferedImage.TYPE_INT_RGB);
-            Graphics2D g = combined.createGraphics();
-            g.drawImage(logo, 0,0, null);
-            g.drawImage(qrCode, qrPositionX, qrPositionY, null);
-            g.dispose();
-
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(combined, "PNG", baos);
-            imageArray = baos.toByteArray();
-
-
-        } catch (WriterException e) {
-            throw new QrEncodingException("Problem occurred while encoding data into QR image");
-        } catch (IOException e) {
-            throw new RuntimeException("Problem occurred while reading/saving qr code");
+        InputStream logoStream = getClass().getClassLoader().getResourceAsStream("logo.png");
+        if(logoStream == null){
+            throw new LogoNotFoundException("Can not find logo image in \"resources\" folder");
         }
+        BufferedImage logo = ImageIO.read(logoStream);
+
+        int qrPositionX = (logo.getWidth() / 2) - (qrCode.getWidth() / 2);
+        // divided by 8 is because of "PAY BY SQUARE" title at the bottom of the logo image
+        int qrPositionY = (logo.getHeight() / 2) - (qrCode.getHeight() / 2) - (qrCode.getHeight() / 8);
+
+        BufferedImage combined = new BufferedImage(logo.getWidth(), logo.getHeight(), BufferedImage.TYPE_INT_RGB);
+        Graphics2D g = combined.createGraphics();
+        g.drawImage(logo, 0,0, null);
+        g.drawImage(qrCode, qrPositionX, qrPositionY, null);
+        g.dispose();
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(combined, "PNG", baos);
+        imageArray = baos.toByteArray();
+
 
         return imageArray;
 

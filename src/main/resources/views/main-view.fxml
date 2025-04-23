@@ -11,6 +11,5 @@
     <Button text="Vytvoriť faktúru" onAction="#createInvoice"/>
     <Button text="Pridať dodávateľa" onAction="#addSender"/>
     <Button text="Pridať príjemcu" onAction="#addRecipient"/>
-    <Button text="Nastavenia"/>
 
 </VBox>

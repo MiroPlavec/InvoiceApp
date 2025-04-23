@@ -18,8 +18,7 @@ import java.io.IOException;
 public class PDFMaker implements AutoCloseable {
 
 
-    private static String PATH = "D:\\InvoiceApp\\src\\main\\resources\\f.pdf";
-
+    private File saveFile;
     private final Sender sender;
     private final Recipient recipient;
     private final InvoiceDetails invoiceDetails;
@@ -58,11 +57,12 @@ public class PDFMaker implements AutoCloseable {
     private static final Color BACKGROUND = new Color(207, 232, 252);
 
 
-    public PDFMaker(Sender sender, Recipient recipient, InvoiceDetails invoiceDetails, byte[] qrArray) throws IOException {
+    public PDFMaker(Sender sender, Recipient recipient, InvoiceDetails invoiceDetails, byte[] qrArray, File file) throws IOException {
         this.sender = sender;
         this.recipient = recipient;
         this.invoiceDetails = invoiceDetails;
         this.qrArray = qrArray;
+        this.saveFile = file;
 
         this.document = new PDDocument();
         page = new PDPage(PDRectangle.A4);
@@ -345,7 +345,7 @@ public class PDFMaker implements AutoCloseable {
 
     private void save() throws IOException {
         contentStream.close();
-        document.save(new File(PATH));
+        document.save(saveFile);
     }
 
     @Override

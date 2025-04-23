@@ -1,5 +1,6 @@
 package org.cevalp.invoiceapp.controllers;
 
+import com.google.zxing.WriterException;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -13,6 +14,7 @@ import org.cevalp.invoiceapp.navigation.ViewSwitcher;
 import org.cevalp.invoiceapp.utils.PDFMaker;
 import org.cevalp.invoiceapp.utils.QREncoder;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
@@ -77,6 +79,9 @@ public class InvoiceViewController {
 
     public void createInvoice(){
         if(!checkData()) return;
+        File saveFile = ViewSwitcher.showSaveDialog();
+        if(saveFile == null) return;
+
         Sender sender = createSender();
         Recipient recipient = createRecipient();
         InvoiceDetails invoiceDetails = createInvoiceDetails();
@@ -84,15 +89,26 @@ public class InvoiceViewController {
         PaymentDetails paymentDetails = createPaymentDetails();
 
         QREncoder encoder = new QREncoder();
-        String encodedData = encoder.encode(paymentDetails);
-        byte[] qr = encoder.createQrCode(encodedData);
 
-        try (PDFMaker pdfMaker = new PDFMaker(sender, recipient, invoiceDetails, qr)){
-            pdfMaker.makePDF();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        String encodedData;
+        byte[] qr;
+        try {
+            encodedData = encoder.encode(paymentDetails);
+            qr = encoder.createQrCode(encodedData);
+        }catch (WriterException | IOException e) {
+            ViewSwitcher.errorAlert("Nastal problém pri vytvorení QR kódu. Faktúra nebola vytvorená.");
+            return;
         }
 
+        try (PDFMaker pdfMaker = new PDFMaker(sender, recipient, invoiceDetails, qr, saveFile)){
+            pdfMaker.makePDF();
+        } catch (IOException e) {
+            ViewSwitcher.errorAlert("Nastal problém pri vytvorení pdf súbora faktúry. Faktúra nebola vytvorená.");
+            return;
+        }
+
+        ViewSwitcher.infoAlert("Faktúra bola úspešne vytvorená");
+        back();
     }
 
     private boolean checkData(){

@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.cevalp.invoiceapp.controllers.InvoiceViewController;
@@ -12,6 +13,7 @@ import org.cevalp.invoiceapp.model.AbstractUser;
 import org.cevalp.invoiceapp.model.Recipient;
 import org.cevalp.invoiceapp.model.Sender;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -78,11 +80,18 @@ public abstract class ViewSwitcher {
         pickerWindow.show();
     }
 
-
     public static void closePicker(){
         if (pickerWindow != null){
             pickerWindow.close();
             pickerWindow = null;
         }
+    }
+
+    public static File showSaveDialog(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF súbory", "*.pdf"));
+        File file = fileChooser.showSaveDialog(mainWindow);
+
+        return file;
     }
 }
