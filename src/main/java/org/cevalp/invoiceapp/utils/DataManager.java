@@ -18,14 +18,14 @@ import java.util.List;
 
 // 2. save recipient (load)
 
-public class DataManager {
-    private final Path appDir = Paths.get(System.getProperty("user.home"), "InvoiceApp");
-    private final String senderFile = "senders.json";
-    private final String recipientFile = "recipients.json";
+public abstract class DataManager {
+    private static final Path appDir = Paths.get(System.getProperty("user.home"), "InvoiceApp");
+    private static final String senderFile = "senders.json";
+    private static final String recipientFile = "recipients.json";
 
-    private final Gson gson = new Gson();
+    private static final Gson gson = new Gson();
 
-    private void checkDirectory() throws DataManagerException {
+    private static void checkDirectory() throws DataManagerException {
         try {
             Files.createDirectories(appDir);
         } catch (IOException e) {
@@ -34,7 +34,7 @@ public class DataManager {
     }
 
 
-    public void save(AbstractUser user) throws DataManagerException{
+    public static void save(AbstractUser user) throws DataManagerException{
         checkDirectory();
         List<AbstractUser> users;
         Path filePath;
@@ -54,7 +54,7 @@ public class DataManager {
     }
 
 
-    public List<AbstractUser> load(Class<? extends AbstractUser> clazz) throws DataManagerException{
+    public static List<AbstractUser> load(Class<? extends AbstractUser> clazz) throws DataManagerException{
         Path filePath;
         if (clazz == Sender.class){
             filePath = appDir.resolve(senderFile);

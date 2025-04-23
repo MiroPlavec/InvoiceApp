@@ -43,6 +43,10 @@ public abstract class AbstractUser {
         return street;
     }
 
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
     @Override
     public String toString() {
         return "AbstractUser{" +

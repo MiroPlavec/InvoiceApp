@@ -45,13 +45,9 @@ public class AddSenderViewController {
     @FXML
     private Pane root;
 
-    private final DataManager dataManager;
     private String ibanValue;
     private boolean ibanListener;
 
-    public AddSenderViewController(){
-        dataManager = new DataManager();
-    }
 
     public void back(){
         ViewSwitcher.switchScene(View.MAIN);
@@ -73,7 +69,7 @@ public class AddSenderViewController {
                 .iban(iban.getText())
                 .build();
 
-            dataManager.save(sender);
+            DataManager.save(sender);
             ViewSwitcher.infoAlert("Odosielateľ bol vytvorený");
             back();
         } catch (InvalidIbanException e){

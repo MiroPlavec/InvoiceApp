@@ -31,12 +31,6 @@ public class AddRecipientViewController {
     @FXML
     private TextField houseNumber;
 
-    private DataManager dataManager;
-
-    public AddRecipientViewController(){
-        dataManager = new DataManager();
-    }
-
     public void back(){
         ViewSwitcher.switchScene(View.MAIN);
     }
@@ -53,7 +47,7 @@ public class AddRecipientViewController {
                 .build();
 
         try {
-            dataManager.save(recipient);
+            DataManager.save(recipient);
             ViewSwitcher.infoAlert("Príjemnca bol úspešne vytvorený");
             back();
         }catch (DataManagerException e){

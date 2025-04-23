@@ -28,7 +28,7 @@ public class InvoiceApp extends Application {
 
         Scene mainScene = new Scene(root, 1000, 700);
         stage.setScene(mainScene);
-        ViewSwitcher.setScene(stage);
+        ViewSwitcher.setStage(stage);
         stage.show();
     }
 

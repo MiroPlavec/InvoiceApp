@@ -1,0 +1,39 @@
+
+.list-cell {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333;
+}
+
+/* buttons */
+.btn-area{
+    -fx-alignment: baseline-right;
+    -fx-spacing: 10;
+}
+
+.submit-btn{
+    -fx-background-radius: 15;
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
+.submit-btn:hover{
+    -fx-background-color: #97f597;
+}
+.submit-btn:pressed{
+    -fx-background-color: #4ff14f;
+    -fx-translate-y: 2;
+}
+
+.cancel-btn{
+    -fx-background-radius: 15;
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
+.cancel-btn:hover{
+    -fx-background-color: #f88a8a;
+}
+.cancel-btn:pressed{
+    -fx-background-color: #f54c4c;
+    -fx-translate-y: 2;
+}

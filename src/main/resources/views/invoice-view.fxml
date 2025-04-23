@@ -15,7 +15,7 @@
 
     <GridPane styleClass="gridPane">
         <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Dodávateľ"/>
-        <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="Vybrať dodávateľa"/>
+        <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="Vybrať dodávateľa" onAction="#showSenderPicker"/>
 
         <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Firma:"/>
         <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="senderCompanyName"/>
@@ -37,7 +37,7 @@
     
     <GridPane styleClass="gridPane">
         <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Prijímateľ"/>
-        <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="Vybrať prijímateľa"/>
+        <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="Vybrať prijímateľa" onAction="#showRecipientPicker"/>
 
         <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Firma:"/>
         <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="receiverCompanyName"/>
@@ -58,7 +58,6 @@
 
     <GridPane styleClass="gridPane">
         <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Platobné údaje"/>
-        <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="Vybrať údaje"/>
 
         <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Banka:"/>
         <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="senderBank"/>

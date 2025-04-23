@@ -1,5 +1,6 @@
 package org.cevalp.invoiceapp.controllers;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import org.cevalp.invoiceapp.model.InvoiceDetails;
@@ -17,33 +18,59 @@ import java.time.format.DateTimeFormatter;
 public class InvoiceViewController {
 
 
-    public TextField senderCompanyName;
-    public TextField senderIco;
-    public TextField senderDic;
-    public TextField senderCity;
-    public TextField senderStreet;
-    public TextField senderHouseNumber;
-    public TextField senderPsc;
-    public TextField senderBank;
-    public TextField senderSwift;
-    public TextField senderIban;
+    @FXML
+    private TextField senderCompanyName;
+    @FXML
+    private TextField senderIco;
+    @FXML
+    private TextField senderDic;
+    @FXML
+    private TextField senderCity;
+    @FXML
+    private TextField senderStreet;
+    @FXML
+    private TextField senderHouseNumber;
+    @FXML
+    private TextField senderPsc;
+    @FXML
+    private TextField senderBank;
+    @FXML
+    private TextField senderSwift;
+    @FXML
+    private TextField senderIban;
 
-    public TextField receiverCompanyName;
-    public TextField receiverIco;
-    public TextField receiverDic;
-    public TextField receiverCity;
-    public TextField receiverStreet;
-    public TextField receiverHouseNumber;
-    public TextField receiverPsc;
+    @FXML
+    private TextField receiverCompanyName;
+    @FXML
+    private TextField receiverIco;
+    @FXML
+    private TextField receiverDic;
+    @FXML
+    private TextField receiverCity;
+    @FXML
+    private TextField receiverStreet;
+    @FXML
+    private TextField receiverHouseNumber;
+    @FXML
+    private TextField receiverPsc;
 
 
-    public TextField variableSymbol;
-    public TextField constantSymbol;
-    public TextField amount;
-    public DatePicker creationDate;
-    public DatePicker payDueDate;
-    public TextField invoiceId;
-    public TextField description;
+    @FXML
+    private TextField variableSymbol;
+    @FXML
+    private TextField constantSymbol;
+    @FXML
+    private TextField amount;
+    @FXML
+    private DatePicker creationDate;
+    @FXML
+    private DatePicker payDueDate;
+    @FXML
+    private TextField invoiceId;
+    @FXML
+    private TextField description;
+
+
 
     public void createInvoice(){
         Sender sender = createSender();
@@ -118,6 +145,37 @@ public class InvoiceViewController {
 
     public void back(){
         ViewSwitcher.switchScene(View.MAIN);
+    }
+
+    public void showSenderPicker(){
+        ViewSwitcher.showPicker(this, Sender.class);
+    }
+
+    public void showRecipientPicker(){
+        ViewSwitcher.showPicker(this, Recipient.class);
+    }
+
+    public void setSenderData(Sender sender){
+        senderCompanyName.setText(sender.getCompanyName());
+        senderIco.setText(sender.getIco());
+        senderDic.setText(sender.getDic());
+        senderCity.setText(sender.getCity());
+        senderStreet.setText(sender.getStreet());
+        senderHouseNumber.setText(sender.getHouseNumber());
+        senderPsc.setText(sender.getPostcode());
+        senderBank.setText(sender.getBank());
+        senderSwift.setText(sender.getSwift());
+        senderIban.setText(sender.getIban());
+    }
+
+    public void setReceiverData(Recipient recipient){
+        receiverCompanyName.setText(recipient.getCompanyName());
+        receiverIco.setText(recipient.getIco());
+        receiverDic.setText(recipient.getDic());
+        receiverCity.setText(recipient.getCity());
+        receiverStreet.setText(recipient.getStreet());
+        receiverHouseNumber.setText(recipient.getHouseNumber());
+        receiverPsc.setText(recipient.getPostcode());
     }
 
 }

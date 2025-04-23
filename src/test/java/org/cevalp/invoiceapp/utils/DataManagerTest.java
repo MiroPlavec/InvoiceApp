@@ -3,18 +3,11 @@ package org.cevalp.invoiceapp.utils;
 import org.cevalp.invoiceapp.model.AbstractUser;
 import org.cevalp.invoiceapp.model.Recipient;
 import org.cevalp.invoiceapp.model.Sender;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 class DataManagerTest {
-    private DataManager dataManager;
-
-    @BeforeEach
-    public void init(){
-        dataManager = new DataManager();
-    }
 
 
     @Test
@@ -32,7 +25,7 @@ class DataManagerTest {
                 .swift("TARTAs")
                 .build();
 
-        dataManager.save(sender);
+        DataManager.save(sender);
     }
 
     @Test
@@ -47,19 +40,19 @@ class DataManagerTest {
                 .postCode("0145")
                 .build();
 
-        dataManager.save(recipient);
+        DataManager.save(recipient);
     }
 
 
     @Test
     void loadSender() throws DataManagerException{
-        List<AbstractUser> users = dataManager.load(Sender.class);
+        List<AbstractUser> users = DataManager.load(Sender.class);
         users.forEach(System.out::println);
     }
 
     @Test
     void loadRecipient() throws DataManagerException{
-        List<AbstractUser> users = dataManager.load(Recipient.class);
+        List<AbstractUser> users = DataManager.load(Recipient.class);
         users.forEach(System.out::println);
     }
 }

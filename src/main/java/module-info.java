@@ -16,5 +16,6 @@ module org.cevalp.invoiceapp {
     opens org.cevalp.invoiceapp.model to com.google.gson;
 
     exports org.cevalp.invoiceapp;
+    exports org.cevalp.invoiceapp.model;
     exports org.cevalp.invoiceapp.controllers;
 }
