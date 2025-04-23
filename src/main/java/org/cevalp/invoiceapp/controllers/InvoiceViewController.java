@@ -76,8 +76,8 @@ public class InvoiceViewController {
 
 
     public void createInvoice(){
+        if(!checkData()) return;
         Sender sender = createSender();
-
         Recipient recipient = createRecipient();
         InvoiceDetails invoiceDetails = createInvoiceDetails();
 
@@ -93,6 +93,45 @@ public class InvoiceViewController {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private boolean checkData(){
+        if (senderSwift.getText().isBlank()){
+            ViewSwitcher.errorAlert("Swift musí byť zadaný kvôli vytvorení QR kódu");
+            return false;
+        }
+        if(amount.getText().isBlank()){
+            ViewSwitcher.errorAlert("Suma musí byť zadaná");
+            return false;
+        }else{
+            try {
+                Double.parseDouble(amount.getText());
+            }catch (NumberFormatException e){
+                ViewSwitcher.errorAlert(("Suma %s je v zlom tvare. Skontrolujte: " +
+                        "\n\t Oddeľuje sa bodkou nie čiarkou" +
+                        "\n\t Použitie iných znakov ako číslic").formatted(amount.getText()));
+                return false;
+            }
+        }
+        if(!checkIban(senderIban.getText())){
+            ViewSwitcher.errorAlert("Iban je v nesprávnom tvare");
+            return false;
+        }
+        if(creationDate.getValue() == null || payDueDate.getValue() == null){
+            ViewSwitcher.errorAlert("Dátum vyhotovenia alebo dátum splatnosti nie je zadaný");
+            return false;
+        }
+        if(paymentWay.getValue() == null){
+            ViewSwitcher.errorAlert("Spôsob platby musí byť zadaný");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkIban(String iban){
+        if(iban.isBlank()) return false;
+        if(iban.length() != 24) return false;
+        return iban.startsWith("SK");
     }
 
     private Sender createSender(){

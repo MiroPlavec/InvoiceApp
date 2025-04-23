@@ -294,7 +294,7 @@ public class PDFMaker implements AutoCloseable {
 
         contentStream.newLineAtOffset(space,0);
         contentStream.setNonStrokingColor(BLACK);
-        contentStream.showText(invoiceDetails.getAmount() + " eur");
+        contentStream.showText("%.2f".formatted(invoiceDetails.getAmount()) + " eur");
 
         contentStream.endText();
 
@@ -314,7 +314,7 @@ public class PDFMaker implements AutoCloseable {
         contentStream.showText("Suma na úhradu: ");
 
         contentStream.setFont(boldFont, TEXT_SIZE_BIGGER);
-        contentStream.showText(invoiceDetails.getAmount() + " EUR");
+        contentStream.showText("%.2f".formatted(invoiceDetails.getAmount()) + " €");
         contentStream.endText();
 
     }
