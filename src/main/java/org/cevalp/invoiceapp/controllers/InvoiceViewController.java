@@ -201,7 +201,6 @@ public class InvoiceViewController {
                 .build();
     }
 
-
     public void back(){
         ViewSwitcher.switchScene(View.MAIN);
     }

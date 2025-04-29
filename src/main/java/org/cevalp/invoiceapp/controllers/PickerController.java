@@ -52,7 +52,7 @@ public class PickerController {
         }
 
         List<String> data = users.stream()
-                .map(e -> "Firma: %s, ICO: %s, DIC: %s".formatted(e.getCompanyName(), e.getIco(), e.getDic()))
+                .map(e -> "Firma: %s, IČO: %s, DIČ: %s".formatted(e.getCompanyName(), e.getIco(), e.getDic()))
                 .toList();
 
         userListView.getItems().addAll(data);
