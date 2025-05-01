@@ -3,6 +3,7 @@ package org.cevalp.invoiceapp.utils.savings;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.cevalp.invoiceapp.model.AbstractUser;
+import org.cevalp.invoiceapp.model.IDManager;
 import org.cevalp.invoiceapp.model.Recipient;
 import org.cevalp.invoiceapp.model.Sender;
 import org.cevalp.invoiceapp.utils.DataManagerException;
@@ -62,6 +63,8 @@ public class DataManager {
     public void loadAppData(){
         loadSpecificUser(senders, Sender.class, senderFilePath);
         loadSpecificUser(recipients, Recipient.class, recipientFilePath);
+        IDManager.findSenderId(senders);
+        IDManager.findRecipientId(recipients);
     }
 
     public void saveAppData(){
@@ -80,7 +83,8 @@ public class DataManager {
     private <T extends AbstractUser> void loadSpecificUser(List<T> users, Class<T> clazz, Path path){
         try(FileReader reader = new FileReader(path.toString())){
             Type listType = TypeToken.getParameterized(List.class, clazz).getType();
-            users.addAll(gson.fromJson(reader, listType));
+            List<T> loadedUsers = gson.fromJson(reader, listType);
+            if(loadedUsers != null) users.addAll(loadedUsers);
         } catch (FileNotFoundException e) {
             throw new RuntimeException("File %s was not found".formatted(path.toString()));
         } catch (IOException e) {

@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.cevalp.invoiceapp.model.IDManager;
 import org.cevalp.invoiceapp.navigation.FXMLNotFoundException;
 import org.cevalp.invoiceapp.navigation.View;
 import org.cevalp.invoiceapp.navigation.ViewSwitcher;
@@ -39,9 +38,6 @@ public class InvoiceApp extends Application {
         DataManager.checkDirectory();
         DataManager dataManager = DataManager.getInstance();
         dataManager.loadAppData();
-
-        IDManager.findSenderId(dataManager.getSenders());
-        IDManager.findRecipientId(dataManager.getRecipients());
     }
 
     @Override
