@@ -60,6 +60,14 @@ public class DataManager {
         recipients.add(recipient);
     }
 
+    public void removeSender(Sender target){
+        senders.removeIf(sender -> sender.getId() == target.getId());
+    }
+
+    public void removeRecipient(Recipient target){
+        recipients.removeIf(recipient -> recipient.getId() == target.getId());
+    }
+
     public void loadAppData(){
         loadSpecificUser(senders, Sender.class, senderFilePath);
         loadSpecificUser(recipients, Recipient.class, recipientFilePath);
