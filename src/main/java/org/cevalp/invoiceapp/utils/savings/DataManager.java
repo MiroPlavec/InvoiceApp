@@ -68,6 +68,22 @@ public class DataManager {
         recipients.removeIf(recipient -> recipient.getId() == target.getId());
     }
 
+    public void updateSender(int senderId, Sender newSender){
+        for (Sender sender : senders) {
+            if (sender.getId() == senderId) {
+                sender.update(newSender);
+            }
+        }
+    }
+
+    public void updateRecipient(int recipientId, Recipient newRecipient){
+        for(Recipient recipient : recipients){
+            if(recipient.getId() == recipientId){
+                recipient.update(newRecipient);
+            }
+        }
+    }
+
     public void loadAppData(){
         loadSpecificUser(senders, Sender.class, senderFilePath);
         loadSpecificUser(recipients, Recipient.class, recipientFilePath);

@@ -15,6 +15,10 @@ public class Recipient extends AbstractUser{
         );
     }
 
+    public void update(Recipient recipient){
+        super.update(recipient);
+    }
+
 
 
 

@@ -1,7 +1,7 @@
 package org.cevalp.invoiceapp.model;
 
 public abstract class AbstractUser {
-    private int id;
+    private final int id;
     private String companyName;
     private String city;
     private String street;
@@ -51,6 +51,16 @@ public abstract class AbstractUser {
 
     public String getHouseNumber() {
         return houseNumber;
+    }
+
+    public void update(AbstractUser user){
+        this.companyName = user.companyName;
+        this.city = user.city;
+        this.postcode = user.postcode;
+        this.ico = user.ico;
+        this.dic = user.dic;
+        this.street = user.street;
+        this.houseNumber = user.houseNumber;
     }
 
     @Override

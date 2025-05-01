@@ -57,6 +57,16 @@ public class Sender extends AbstractUser{
     }
 
 
+    public void update(Sender newSender){
+        super.update(newSender);
+        this.bank = newSender.bank;
+        this.iban = newSender.iban;
+        this.swift = newSender.swift;
+        this.accountNumber = newSender.accountNumber;
+        this.bankNumber = newSender.bankNumber;
+    }
+
+
     public static class SenderBuilder{
         private String companyName;
         private String city;
